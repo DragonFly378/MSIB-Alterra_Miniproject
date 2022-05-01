@@ -1,0 +1,37 @@
+@use "../../scss/" as *;
+
+footer {
+  h5 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+
+    color: #027878;
+  }
+
+  li {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: $main-color;
+
+    a {
+      text-decoration: none;
+      color: $main-color;
+    }
+  }
+
+  @include mobile {
+    text-align: center;
+    img {
+      margin-bottom: 20px;
+    }
+
+    .konten {
+      margin: 10px 0;
+      text-align: left;
+    }
+  }
+}

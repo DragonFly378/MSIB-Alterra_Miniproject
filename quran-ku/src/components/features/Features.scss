@@ -1,0 +1,45 @@
+@use "../../scss/" as *;
+
+.features-section {
+  margin: 100px 0;
+  text-align: center;
+  h2 {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    color: $main-color;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .konten {
+    .cards:nth-child(2n) {
+      // background-color: #156f37;
+      margin: 0px -50px;
+
+      @include mobile {
+        margin: 15px -50px;
+      }
+      @include tablet {
+        margin: 15px -50px;
+      }
+    }
+  }
+
+  .card-features {
+    background-color: #e0ffec;
+    padding: 35px 25px;
+    border: 0;
+
+    img {
+      width: 80px;
+    }
+    h3 {
+      align-items: center;
+      text-align: center;
+
+      color: #3b6060;
+      font-weight: 600;
+    }
+  }
+}

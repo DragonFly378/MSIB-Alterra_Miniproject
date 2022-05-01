@@ -1,0 +1,28 @@
+@use "../../scss/" as *;
+
+nav {
+  background-color: $nav-color;
+  box-shadow: 0px 4px 21px -11px #bce0e0;
+}
+
+.navbar-nav {
+  & > * ~ * {
+    margin-left: 1rem;
+    @include mobile {
+      margin: 2px 0;
+      margin-left: 0;
+    }
+    @include tablet {
+      margin: 2px 0;
+      margin-left: 0;
+    }
+  }
+
+  .nav-link {
+    color: #2e2e2e !important;
+  }
+
+  .sign {
+    width: 100%;
+  }
+}
