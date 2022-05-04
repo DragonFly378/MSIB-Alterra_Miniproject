@@ -5,9 +5,22 @@
     .kiri {
       align-items: center;
       justify-content: center;
+      h3 {
+        color: $main-color;
+      }
 
       h2 {
-        font-weight: bold;
+        font-weight: 700;
+        line-height: 48px;
+
+        color: $main-color;
+
+        @include mobile {
+          text-align: center;
+        }
+        @include tablet {
+          text-align: center;
+        }
       }
 
       @include tablet {
@@ -47,15 +60,51 @@
         padding: 25px 20px;
         align-items: center;
         justify-content: center;
+        color: $main-color;
       }
+
+      .icon {
+        margin-top: 1em;
+        color: $main-color;
+      }
+
       .name {
         font-size: 22px;
         font-weight: 500;
       }
-      .desc {
+      .desc-surah {
         margin-top: 4px;
         font-style: italic;
         font-size: 16px;
+      }
+      .arabic {
+        font-size: 36px;
+      }
+
+      @include mobile {
+        .icon {
+          width: 28px;
+        }
+        .name {
+          text-align: left;
+          font-size: 20px;
+        }
+        .desc-surah {
+          text-align: left;
+          font-size: 14px;
+        }
+        .arabic {
+          font-size: 26px;
+        }
+      }
+      @include tablet {
+        .desc-surah {
+          text-align: left;
+          font-size: 14px;
+        }
+        .arabic {
+          font-size: 32px;
+        }
       }
     }
   }

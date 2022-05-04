@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../button/Button";
 import "./YukMulai.scss";
+import { Link } from "react-router-dom";
 
 const YukMulai = () => {
   return (
@@ -18,20 +19,24 @@ const YukMulai = () => {
               tellus elit sed risus. Maecenas eget condimentum velit, sit amet
               feugiat lectus.{" "}
             </p>
-            <Button
-              className="btn me-3"
-              title="Baca Alquran"
-              path="/alquran"
-              background="#027878"
-              color="#fff"
-            />
-            <Button
-              className="btn btn-outline-info"
-              title="Jadwal Sholat"
-              path="/alquran"
-              background="#fff"
-              color="#027878"
-            />
+            <Link to="/bacaquran">
+              <Button
+                className="btn me-3"
+                title="Baca Alquran"
+                background="#027878"
+                color="#fff"
+              />{" "}
+            </Link>
+
+            <Link to="/jadwalsholat">
+              <Button
+                className="btn btn-outline-info"
+                title="Jadwal Sholat"
+                path="/alquran"
+                background="#fff"
+                color="#027878"
+              />{" "}
+            </Link>
           </div>
         </div>
       </div>

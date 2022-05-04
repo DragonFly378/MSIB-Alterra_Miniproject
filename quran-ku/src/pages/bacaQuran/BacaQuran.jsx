@@ -43,7 +43,9 @@ const KontenKiri = () => {
       <div className="kiri">
         <div className="row align-content-center ">
           <h3>Lates Read</h3>
-          <h2>Surah Al-Baqarah - 256</h2>
+          <h2>
+            Surah <span style={{ color: "#F9B52C" }}>Al-Baqarah - 256</span>{" "}
+          </h2>
         </div>
       </div>
     </>
@@ -70,7 +72,7 @@ const TableSurah = ({ noSurah }) => {
 
       res = await alquranApi.getSurah(params);
       setDatas(res.data);
-      console.log(res.data[0]);
+      console.log(res.data[0].name.short);
     };
     getListSurah();
     console.log(datas);
@@ -84,20 +86,22 @@ const TableSurah = ({ noSurah }) => {
       >
         <tbody>
           {datas.map((data, dataIdx) => (
-            <tr className="surah">
+            <tr key={dataIdx} className={`surah ${dataIdx + 1}`}>
               <td style={{ width: "5%" }}>
-                <div className="icon text-center">
-                  <StarFill size={32} />
-                </div>
+                <p className="text-center ">
+                  <StarFill size={32} className="icon" />
+                </p>
               </td>
-              <td style={{ width: "50%" }}>
-                <div className="name">{data.name.transliteration.id}</div>
-                <div className="desc">
+              <td style={{ width: "60%" }}>
+                <div className="name">
+                  <span>{data.number}.</span> {data.name.transliteration.id}
+                </div>
+                <div className="desc-surah">
                   {data.numberOfVerses} Ayat - {data.revelation.id}
                 </div>
               </td>
-              <td style={{ width: " 35%" }} className="text-end">
-                <CaretRightFill size={28} />
+              <td style={{ width: "20%" }} className="text-end arabic">
+                {data.name.short}
               </td>
             </tr>
           ))}
