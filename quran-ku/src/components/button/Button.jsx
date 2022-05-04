@@ -5,10 +5,7 @@ import "./Button.scss";
 const Button = ({ title, color, background, path, className }) => {
   return (
     <button className={className} style={{ backgroundColor: background }}>
-      <a href={path} style={{ textDecoration: "none", color: color }}>
-        {" "}
-        {title}
-      </a>
+      <a style={{ textDecoration: "none", color: color }}> {title}</a>
     </button>
   );
 };

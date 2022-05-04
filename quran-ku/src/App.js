@@ -1,11 +1,28 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.scss";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import BacaQuran from "./pages/bacaQuran/BacaQuran";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import JadwalSholat from "./pages/JadwalSholat";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
     <>
-      <Home />
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/bacaquran" element={<BacaQuran />} />{" "}
+          <Route path="/jadwalsholat" element={<JadwalSholat />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </>
   );
 }

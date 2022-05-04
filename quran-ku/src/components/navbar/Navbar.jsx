@@ -12,13 +12,15 @@ const Navbar = () => {
         data-aos="fade-down"
       >
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <img
-              src={logo}
-              alt="logo"
-              style={{ width: "168px", padding: "10px 0px" }}
-            />
-          </a>
+          <Link to="/">
+            <a className="navbar-brand">
+              <img
+                src={logo}
+                alt="logo"
+                style={{ width: "168px", padding: "10px 0px" }}
+              />
+            </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -36,37 +38,39 @@ const Navbar = () => {
           >
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a href="index.html" className="nav-link active">
+                <Link to="/" className="nav-link active">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="#about" className="nav-link">
+                <Link to="/bacaquran" className="nav-link">
                   Baca Quran
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a href="#projects" className="nav-link">
+                <Link to="/jadwalsholat" className="nav-link">
                   Jadwal Sholat
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item">
-                <Button
-                  className=" btn sign"
-                  title="Sign in"
-                  path="/login"
-                  color="#027878"
-                />
+                <Link to="/login">
+                  <Button
+                    className=" btn sign"
+                    title="Sign in"
+                    color="#027878"
+                  />
+                </Link>
               </li>
               <li className="nav-item">
-                <Button
-                  className=" btn sign"
-                  title="Sign up"
-                  path="/signup"
-                  background="#027878"
-                  color="#fff "
-                />
+                <Link to="/signup">
+                  <Button
+                    className=" btn sign"
+                    title="Sign up"
+                    background="#027878"
+                    color="#fff "
+                  />
+                </Link>
               </li>
             </ul>
           </div>

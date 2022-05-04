@@ -1,0 +1,62 @@
+@use "../../scss/" as *;
+
+.baca-quran {
+  .jumbotron-section {
+    .kiri {
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        font-weight: bold;
+      }
+
+      @include tablet {
+        text-align: center;
+      }
+      @include mobile {
+        text-align: center;
+      }
+    }
+
+    .kanan {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 75%;
+      }
+      @include tablet {
+        img {
+          width: 120%;
+        }
+      }
+    }
+  }
+
+  .table-surah {
+    border-collapse: separate;
+    border-spacing: 0 0.5em;
+    font-size: 18px;
+
+    .surah {
+      border: 1px solid;
+      box-shadow: 3px 3px 19px rgba(2, 120, 120, 0.11);
+      border-radius: 20px !important;
+
+      td {
+        padding: 25px 20px;
+        align-items: center;
+        justify-content: center;
+      }
+      .name {
+        font-size: 22px;
+        font-weight: 500;
+      }
+      .desc {
+        margin-top: 4px;
+        font-style: italic;
+        font-size: 16px;
+      }
+    }
+  }
+}
