@@ -3,7 +3,7 @@ import Jumbotron from "../../components/jumbotron/Jumbotron";
 import imgbanner from "../../images/bannerImg.svg";
 import "./BacaQuran.scss";
 
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import alquranApi from "../../api/alquranApi";
 
@@ -62,15 +62,16 @@ const KontenKanan = () => {
   );
 };
 
-const TableSurah = ({ noSurah }) => {
+const TableSurah = () => {
   const [datas, setDatas] = useState([]);
+  // const link = "/surah"+ "/" + data.id;
 
   useEffect(() => {
     const getListSurah = async () => {
       let res = null;
       const params = {};
 
-      res = await alquranApi.getSurah(params);
+      res = await alquranApi.getListSurah(params);
       setDatas(res.data);
       console.log(res.data[0].name.short);
     };
@@ -86,24 +87,29 @@ const TableSurah = ({ noSurah }) => {
       >
         <tbody>
           {datas.map((data, dataIdx) => (
-            <tr key={dataIdx} className={`surah ${dataIdx + 1}`}>
-              <td style={{ width: "5%" }}>
-                <p className="text-center ">
-                  <StarFill size={32} className="icon" />
-                </p>
-              </td>
-              <td style={{ width: "60%" }}>
-                <div className="name">
-                  <span>{data.number}.</span> {data.name.transliteration.id}
-                </div>
-                <div className="desc-surah">
-                  {data.numberOfVerses} Ayat - {data.revelation.id}
-                </div>
-              </td>
-              <td style={{ width: "20%" }} className="text-end arabic">
-                {data.name.short}
-              </td>
-            </tr>
+            <Link
+              to={"/surah/" + data.number}
+              style={{ textDecoration: "none", cursor: "pointer" }}
+            >
+              <tr key={dataIdx} className={`surah ${data.number}`}>
+                <td style={{ width: "5%" }}>
+                  <p className="text-center ">
+                    <StarFill size={32} className="icon" />
+                  </p>
+                </td>
+                <td style={{ width: "40%" }}>
+                  <div className="name">
+                    <span>{data.number}.</span> {data.name.transliteration.id}
+                  </div>
+                  <div className="desc-surah">
+                    {data.numberOfVerses} Ayat - {data.revelation.id}
+                  </div>
+                </td>
+                <td style={{ width: "30%" }} className="text-end arabic">
+                  {data.name.short}
+                </td>
+              </tr>
+            </Link>
           ))}
         </tbody>
       </table>

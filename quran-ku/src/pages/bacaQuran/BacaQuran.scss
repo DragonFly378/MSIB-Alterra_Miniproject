@@ -81,29 +81,32 @@
         font-size: 36px;
       }
 
+      @include tablet {
+        td {
+          padding: 15px 15px;
+        }
+        .desc-surah {
+          text-align: left;
+          font-size: 14px;
+        }
+        .arabic {
+          font-size: 30px;
+        }
+      }
       @include mobile {
         .icon {
-          width: 28px;
+          width: 22px;
         }
         .name {
           text-align: left;
-          font-size: 20px;
+          font-size: 18px;
         }
         .desc-surah {
           text-align: left;
-          font-size: 14px;
+          font-size: 12px;
         }
         .arabic {
-          font-size: 26px;
-        }
-      }
-      @include tablet {
-        .desc-surah {
-          text-align: left;
-          font-size: 14px;
-        }
-        .arabic {
-          font-size: 32px;
+          font-size: 24px;
         }
       }
     }

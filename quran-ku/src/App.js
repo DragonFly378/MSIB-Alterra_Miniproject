@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import JadwalSholat from "./pages/JadwalSholat";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+import Detail from "./pages/detail/Detail";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/bacaquran" element={<BacaQuran />} />{" "}
+          <Route path="/bacaquran" element={<BacaQuran />} />
+          <Route path="/surah/:id" element={<Detail />} />
           <Route path="/jadwalsholat" element={<JadwalSholat />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

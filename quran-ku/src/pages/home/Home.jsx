@@ -5,6 +5,7 @@ import Features from "../../components/features/Features";
 import YukMulai from "../../components/yukmulai/YukMulai";
 import Button from "../../components/button/Button";
 import imgbanner from "../../images/bannerImg.svg";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -45,13 +46,14 @@ const KontenKanan = () => {
           dan Miim satu huruf.” <br />
           (HR. Tirmidzi)
         </p>
-
-        <Button
-          className="btn"
-          title="Get Started"
-          path="/alquran"
-          color="#fff"
-        />
+        <Link to="/bacaquran">
+          <Button
+            className="btn"
+            title="Get Started"
+            path="/alquran"
+            color="#fff"
+          />
+        </Link>
       </div>
     </>
   );
