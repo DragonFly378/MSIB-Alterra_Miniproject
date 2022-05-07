@@ -10,7 +10,11 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <Jumbotron kiri={<KontenKiri />} kanan={<KontenKanan />} />
+      <Jumbotron
+        dataAos="fade-up"
+        kiri={<KontenKiri />}
+        kanan={<KontenKanan />}
+      />
       <Features />
       <YukMulai />
     </>

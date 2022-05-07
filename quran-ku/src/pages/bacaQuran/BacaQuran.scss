@@ -52,9 +52,8 @@
     font-size: 18px;
 
     .surah {
-      border: 1px solid;
       box-shadow: 3px 3px 19px rgba(2, 120, 120, 0.11);
-      border-radius: 20px !important;
+      border-radius: 20px;
 
       td {
         padding: 25px 20px;
@@ -107,6 +106,17 @@
         }
         .arabic {
           font-size: 24px;
+        }
+      }
+
+      &:hover {
+        background-color: $main-color;
+        box-shadow: 3px 3px 19px rgba(2, 120, 120, 0.11);
+        transition: 500ms;
+
+        td,
+        .icon {
+          color: #f9b52c !important;
         }
       }
     }

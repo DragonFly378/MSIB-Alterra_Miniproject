@@ -8,7 +8,8 @@ const Detail = () => {
   const { id } = useParams();
 
   const [datas, setDatas] = useState([]);
-  const [nama, setNama] = useState([]);
+  const [nama, setNama] = useState({});
+  const [panjang, setPanjang] = useState({});
 
   useEffect(() => {
     const getDetailSurah = async () => {
@@ -21,11 +22,23 @@ const Detail = () => {
 
       console.log(res.data);
     };
-    getDetailSurah();
-    console.log(nama.name.transliteration.id);
-  }, []);
+    const getListSurah = async () => {
+      let res = null;
+      const params = {};
 
-  const namaSurat = nama.name.transliteration.id;
+      res = await alquranApi.getListSurah(params);
+      // setDatas(res.data);
+      console.log(res.data);
+
+      setPanjang(res.data.length);
+    };
+    getListSurah();
+    getDetailSurah();
+    // console.log(nama.name.transliteration.id);
+  }, []);
+  console.log(panjang);
+  const namaSurat = nama.name?.transliteration?.id;
+  const bismillah = nama.preBismillah;
 
   return (
     <>
@@ -38,26 +51,47 @@ const Detail = () => {
               <Link to="/bacaquran">Kembali</Link>
             </div>
 
-            <div className="surat-section mt-4 col-md-12">
-              <div className="row header">
-                <p>
-                  Surat <br />{" "}
-                  <span style={{ color: "#F9B52C" }}>{namaSurat}</span>
-                </p>
+            {id >= panjang ? (
+              <div className="surat-section mt-4 col-md-12">
+                <div className="row header">
+                  <p>
+                    Maaf <br />{" "}
+                    <span style={{ color: "#F9B52C" }}>Surat Tidak Ada</span>
+                  </p>
+                </div>
               </div>
-
-              {datas.map((data, dataIdx) => (
-                <div className="ayat col-md-12" key={dataIdx}>
-                  <div className="row">
-                    <div className="arab ">{data.text.arab} </div>
-                    <div className="arti">
-                      {data.number.inSurah + ". "}
-                      {data.translation.id}
+            ) : (
+              <div className="surat-section mt-4 col-md-12">
+                <div className="row header">
+                  <p>
+                    Surat <br />{" "}
+                    <span style={{ color: "#F9B52C" }}>{namaSurat}</span>
+                  </p>
+                </div>
+                {bismillah == null ? (
+                  " "
+                ) : (
+                  <div className="ayat col-md-12">
+                    <div className="row">
+                      <div className="arab ">{bismillah.text.arab} </div>
+                      <div className="arti">{bismillah.translation.id}</div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                )}
+
+                {datas.map((data, dataIdx) => (
+                  <div className="ayat col-md-12" key={dataIdx}>
+                    <div className="row">
+                      <div className="arab ">{data.text.arab} </div>
+                      <div className="arti">
+                        {data.number.inSurah + ". "}
+                        {data.translation.id}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </>

@@ -14,7 +14,7 @@ const BacaQuran = () => {
     <>
       <div className="baca-quran mt-5">
         <div className="container">
-          <div className="header-section col-md-12 row">
+          <div className="header-section col-md-12 row" data-aos="fade-up">
             <h3>Assalamualaikum</h3>
             <h2>Muhammad Hafiz Hisbullah</h2>
           </div>
@@ -73,7 +73,7 @@ const TableSurah = () => {
 
       res = await alquranApi.getListSurah(params);
       setDatas(res.data);
-      console.log(res.data[0].name.short);
+      console.log(res.data.length);
     };
     getListSurah();
     console.log(datas);
@@ -89,7 +89,11 @@ const TableSurah = () => {
           {datas.map((data, dataIdx) => (
             <Link
               to={"/surah/" + data.number}
-              style={{ textDecoration: "none", cursor: "pointer" }}
+              style={{
+                textDecoration: "none",
+                cursor: "pointer",
+                borderRadius: "20px",
+              }}
             >
               <tr key={dataIdx} className={`surah ${data.number}`}>
                 <td style={{ width: "5%" }}>

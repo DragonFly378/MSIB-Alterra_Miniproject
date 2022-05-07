@@ -17,7 +17,7 @@ const YukMulai = () => {
               molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
               fringilla accumsan, risus sem sollicitudin lacus, ut interdum
               tellus elit sed risus. Maecenas eget condimentum velit, sit amet
-              feugiat lectus.{" "}
+              feugiat lectus.
             </p>
             <Link to="/bacaquran">
               <Button
@@ -25,7 +25,7 @@ const YukMulai = () => {
                 title="Baca Alquran"
                 background="#027878"
                 color="#fff"
-              />{" "}
+              />
             </Link>
 
             <Link to="/jadwalsholat">
@@ -35,7 +35,7 @@ const YukMulai = () => {
                 path="/alquran"
                 background="#fff"
                 color="#027878"
-              />{" "}
+              />
             </Link>
           </div>
         </div>

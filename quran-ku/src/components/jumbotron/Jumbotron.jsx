@@ -1,10 +1,10 @@
 import React from "react";
 import "./Jumbotron.scss";
 import Button from "../button/Button";
-const Jumbotron = ({ kiri, kanan }) => {
+const Jumbotron = ({ kiri, kanan, dataAos }) => {
   return (
     <>
-      <section className="jumbotron" data-aos="zoom-in">
+      <section className="jumbotron" data-aos={dataAos}>
         <div className="container">
           <div className="jumbotron-web">
             <div className="row">
