@@ -1,0 +1,52 @@
+@use "../../scss/" as *;
+
+.signin-section {
+  margin-top: 60px;
+
+  .konten {
+    .kiri {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 70%;
+      }
+    }
+    .kanan {
+      h2 {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px;
+
+        text-align: left;
+
+        margin-bottom: 10px;
+        color: $main-color;
+      }
+      .form-section {
+        background-color: #e0ffec;
+        padding: 45px;
+        color: $main-color;
+
+        form {
+          & > * ~ * {
+            margin: 30px 0;
+          }
+
+          .btn {
+            width: 100%;
+            margin: 0;
+          }
+        }
+
+        .daftar {
+          margin-top: 5px;
+          a {
+            color: $second-color;
+          }
+        }
+      }
+    }
+  }
+}

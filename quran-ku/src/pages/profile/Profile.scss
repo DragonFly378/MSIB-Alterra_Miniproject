@@ -1,0 +1,80 @@
+@use "../../scss/" as *;
+
+.profile {
+  h3 {
+    color: $second-color;
+    @include mobile {
+      text-align: center;
+    }
+    @include tablet {
+      text-align: center;
+    }
+  }
+  h2 {
+    font-weight: 700;
+    line-height: 48px;
+
+    color: $main-color;
+
+    @include mobile {
+      text-align: center;
+    }
+    @include tablet {
+      text-align: center;
+    }
+  }
+  .jumbotron-section {
+    .kiri {
+      align-items: center;
+      justify-content: center;
+      h3 {
+        color: $main-color;
+      }
+
+      @include tablet {
+        text-align: center;
+      }
+      @include mobile {
+        text-align: center;
+      }
+    }
+
+    .kanan {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 75%;
+      }
+      @include tablet {
+        img {
+          width: 120%;
+        }
+      }
+    }
+  }
+}
+.konten-section {
+  .fav-card {
+    background-color: #fff;
+    margin: auto 5%;
+    box-shadow: 3px 3px 19px rgba(2, 120, 120, 0.11);
+    border-radius: 20px;
+    padding: 25px 20px;
+    margin-bottom: 20px;
+
+    .icon {
+      @include mobile {
+        width: 24px;
+      }
+      @include tablet {
+        width: 24px;
+      }
+    }
+
+    .isi-fav,
+    .btn {
+      color: $main-color;
+    }
+  }
+}

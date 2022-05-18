@@ -7,16 +7,20 @@ import Button from "../../components/button/Button";
 import imgbanner from "../../images/bannerImg.svg";
 import { Link } from "react-router-dom";
 
+import { useEffect } from "react";
+
 const Home = () => {
   return (
     <>
-      <Jumbotron
-        dataAos="fade-up"
-        kiri={<KontenKiri />}
-        kanan={<KontenKanan />}
-      />
-      <Features />
-      <YukMulai />
+      <div className="home-section">
+        <Jumbotron
+          // dataAos="fade-up"
+          kiri={<KontenKiri />}
+          kanan={<KontenKanan />}
+        />
+        <Features />
+        <YukMulai />
+      </div>
     </>
   );
 };
@@ -51,12 +55,7 @@ const KontenKanan = () => {
           (HR. Tirmidzi)
         </p>
         <Link to="/bacaquran">
-          <Button
-            className="btn"
-            title="Get Started"
-            path="/alquran"
-            color="#fff"
-          />
+          <Button className="btn" title="Get Started" color="#fff" />
         </Link>
       </div>
     </>

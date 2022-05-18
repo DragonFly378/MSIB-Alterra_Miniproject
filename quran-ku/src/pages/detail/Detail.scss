@@ -2,9 +2,38 @@
 
 .detail {
   .header-section {
+    h3 {
+      color: $second-color;
+      @include mobile {
+        text-align: center;
+      }
+      @include tablet {
+        text-align: center;
+      }
+    }
+    h2 {
+      font-weight: 700;
+      line-height: 48px;
+
+      color: $main-color;
+
+      @include mobile {
+        text-align: center;
+      }
+      @include tablet {
+        text-align: center;
+      }
+    }
     a {
       text-decoration: none;
       color: $main-color;
+
+      @include mobile {
+        text-align: center;
+      }
+      @include tablet {
+        text-align: center;
+      }
     }
   }
 
@@ -35,10 +64,31 @@
         font-weight: 600;
         color: $main-color;
         font-family: "Noto Naskh Arabic", serif;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
       }
       .arti {
         font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .action {
+        // background-color: aqua !important;
+        margin-top: 10px;
+
+        .btn {
+          font-size: 14px;
+          margin-right: 10px;
+
+          @include mobile {
+            font-size: 10px;
+          }
+          @include tablet {
+            font-size: 10px;
+          }
+        }
+        .fav {
+          border: 1px solid $main-color;
+        }
       }
 
       @include mobile {

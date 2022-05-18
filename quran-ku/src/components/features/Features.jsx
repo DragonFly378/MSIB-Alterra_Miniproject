@@ -42,7 +42,7 @@ const Features = () => {
                   alt={data.alt}
                   title={data.title}
                   desc={data.desc}
-                  dataAos={data.dataAos}
+                  // dataAos={data.dataAos}
                 />
               );
             })}

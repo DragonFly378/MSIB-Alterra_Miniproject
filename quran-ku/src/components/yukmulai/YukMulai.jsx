@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const YukMulai = () => {
   return (
     <>
-      <div className="container" data-aos="zoom-in">
+      <div className="container">
         <div className="yukMulai-section col-md-12 ">
           <h2>
             Yuk <span style={{ color: "#F9B52C" }}>Mulai</span>{" "}
@@ -28,7 +28,7 @@ const YukMulai = () => {
               />
             </Link>
 
-            <Link to="/jadwalsholat">
+            {/* <Link to="/jadwalsholat">
               <Button
                 className="btn btn-outline-info"
                 title="Jadwal Sholat"
@@ -36,7 +36,7 @@ const YukMulai = () => {
                 background="#fff"
                 color="#027878"
               />
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

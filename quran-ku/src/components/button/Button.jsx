@@ -2,10 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Button.scss";
 
-const Button = ({ title, color, background, path, className }) => {
+const Button = ({ title, color, background, type, className, onClick }) => {
   return (
-    <button className={className} style={{ backgroundColor: background }}>
-      <a style={{ textDecoration: "none", color: color }}>{title}</a>
+    <button
+      type={type}
+      className={className}
+      style={{ backgroundColor: background, color: color }}
+      onClick={onClick}
+    >
+      {title}
     </button>
   );
 };
