@@ -1,7 +1,6 @@
 import React from "react";
 import "./Profile.scss";
 import imgbanner from "../../images/bannerImg.svg";
-import deleteIcon from "../../images/trash3_fill.svg";
 
 import Jumbotron from "../../components/jumbotron/Jumbotron";
 import { useQuery, useMutation } from "@apollo/client";
@@ -17,7 +16,7 @@ const Profile = () => {
 
   const userId = user?.id;
   const username = user?.fullname;
-  const { data, loading, error, refetch } = useQuery(GET_USER_BY_ID, {
+  const { data, refetch } = useQuery(GET_USER_BY_ID, {
     variables: {
       id: userId,
     },

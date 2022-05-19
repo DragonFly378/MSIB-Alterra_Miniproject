@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import imgbanner from "../../images/bannerImg.svg";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
@@ -71,6 +71,7 @@ const Signin = () => {
           confirmButtonText: "OK",
         }).then(() => {
           window.location.href = window.location.href;
+          return navigate("/signin");
         });
       }
     },

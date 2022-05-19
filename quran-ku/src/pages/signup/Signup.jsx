@@ -50,7 +50,12 @@ const Signup = () => {
     INSERT_USER_ONE,
     {
       onCompleted: (data) => {
-        alert("Akun Terdaftarkan");
+        Swal.fire({
+          title: "Success",
+          text: "Akun berhasil didaftarkan",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
         refetch();
         navigate("/signin");
       },
@@ -62,7 +67,29 @@ const Signup = () => {
 
   const [getDataEmail, { data: dataEmail, loading: loadingLazy }] =
     useLazyQuery(GET_USER_BY_EMAIL, {
-      onCompleted: (data) => {},
+      onCompleted: (dataEmail) => {
+        if (dataEmail?.users?.length >= 1) {
+          Swal.fire({
+            title: "Error",
+            text: "Email sudah terpakai",
+            icon: "error",
+            confirmButtonText: "OK",
+          });
+        } else {
+          const id = Math.floor(Math.random() * 10000) + 1;
+          const tmp = {
+            id: id,
+            fullname: inputs[0].value,
+            email: inputs[1].value,
+            password: inputs[2].value,
+          };
+          insertUser({
+            variables: {
+              object: tmp,
+            },
+          });
+        }
+      },
       onError: (error) => {
         console.log("error nih gan", { error });
       },
@@ -91,53 +118,14 @@ const Signup = () => {
   //   }
   // };
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = async (e) => {
     e.preventDefault();
 
-    getDataEmail({
+    await getDataEmail({
       variables: {
         email: inputs[1].value,
       },
     });
-
-    const id = Math.floor(Math.random() * 10000) + 1;
-    const tmp = {
-      id: id,
-      fullname: inputs[0].value,
-      email: inputs[1].value,
-      password: inputs[2].value,
-    };
-
-    // console.log(tmp);
-    if (inputs[2].value !== inputs[3].value) {
-      Swal.fire({
-        title: "Error",
-        text: "Password tidak sama",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } else if (dataEmail.users.length >= 1) {
-      Swal.fire({
-        title: "Error",
-        text: "Email sudah terpakai",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } else {
-      insertUser({
-        variables: {
-          object: tmp,
-        },
-      });
-    }
-
-    // setInputs(
-    //   inputs.map((input) => {
-    //     return (input.value = "");
-    //   })
-    // );
-
-    // onGetData();
   };
 
   return (

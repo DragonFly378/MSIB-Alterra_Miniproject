@@ -39,7 +39,17 @@ const Form = ({ inputs, submit, changeHandler, btnTitle, type }) => {
         )}
 
         <Button
-          className="btn"
+          className={`btn ${
+            inputs.length > 2 ? (
+              inputs[2].value !== inputs[3].value ? (
+                "disabled"
+              ) : (
+                " "
+              )
+            ) : (
+              <></>
+            )
+          }`}
           title={btnTitle}
           color="#fff"
           background="#027878"
