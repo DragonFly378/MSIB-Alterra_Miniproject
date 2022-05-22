@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Profile.scss";
 import imgbanner from "../../images/bannerImg.svg";
+import { Link } from "react-router-dom";
 
 import Jumbotron from "../../components/jumbotron/Jumbotron";
 import { useQuery, useMutation } from "@apollo/client";
@@ -11,6 +12,8 @@ import Button from "../../components/button/Button";
 import Swal from "sweetalert2";
 
 const Profile = () => {
+  const [idSurat, setIdSurat] = useState("");
+
   const token = localStorage.getItem("Token");
   const user = JSON.parse(token);
 
@@ -21,7 +24,7 @@ const Profile = () => {
       id: userId,
     },
   });
-  // console.log(data);
+  console.log(data);
 
   const [deleteFav, { loading: loadingDelete }] = useMutation(
     DELETE_FAVORITE_ONE,
@@ -77,24 +80,34 @@ const Profile = () => {
             <div className="container mt-4">
               {favorite?.map((fav, favIdx) => {
                 return (
-                  <div className="row fav-card" key={favIdx}>
-                    <div
-                      className="d-flex isi-fav "
-                      style={{ justifyContent: "space-between" }}
-                    >
-                      <div className="d-flex my-auto">
-                        <HeartFill size={32} className="icon me-4" />
-                        <h4 className="desc">
-                          {fav?.nama_surat} : {fav?.ayat}
-                        </h4>
+                  <Link
+                    key={favIdx}
+                    to={"/surah/" + fav?.nomor_surat}
+                    style={{
+                      textDecoration: "none",
+                      cursor: "pointer",
+                      borderRadius: "20px",
+                    }}
+                  >
+                    <div className="row fav-card" key={favIdx}>
+                      <div
+                        className="d-flex isi-fav "
+                        style={{ justifyContent: "space-between" }}
+                      >
+                        <div className="d-flex my-auto">
+                          <HeartFill size={32} className="icon me-4" />
+                          <h4 className="desc">
+                            {fav?.nama_surat} : {fav?.ayat}
+                          </h4>
+                        </div>
+                        <Button
+                          onClick={() => deleteHandle(fav.id)}
+                          className="btn"
+                          title={<Trash3Fill size={32} className="icon" />}
+                        />
                       </div>
-                      <Button
-                        onClick={() => deleteHandle(fav.id)}
-                        className="btn"
-                        title={<Trash3Fill size={32} className="icon" />}
-                      />
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>

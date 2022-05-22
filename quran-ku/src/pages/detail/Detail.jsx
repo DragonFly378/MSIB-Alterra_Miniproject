@@ -51,7 +51,9 @@ const Detail = () => {
   const [insertFavorite, { loading: loadingInsert2 }] = useMutation(
     INSERT_FAVORITE,
     {
-      onCompleted: (data) => {},
+      onCompleted: (data) => {
+        console.log(data);
+      },
       onError: (error) => {
         console.log("error nih gan", { error });
       },
@@ -85,7 +87,7 @@ const Detail = () => {
 
       res = await alquranApi.getListSurah(params);
       // setDatas(res.data);
-      // console.log(res.data);
+      console.log(res.data);
 
       setPanjang(res.data.length);
     };
@@ -97,7 +99,9 @@ const Detail = () => {
 
   const namaSurat = nama.name?.transliteration?.id;
   const bismillah = nama.preBismillah;
-  // console.log(panjang, bismillah);
+  const nomorSurat = id;
+
+  console.log(namaSurat, nomorSurat);
 
   const latesReadHandle = (e, suratName, ayatNumber) => {
     e.preventDefault();
@@ -142,6 +146,7 @@ const Detail = () => {
       nama_surat: suratName,
       ayat: ayatNumber,
       user_id: userId,
+      nomor_surat: nomorSurat,
     };
 
     insertFavorite({

@@ -76,5 +76,16 @@
     .btn {
       color: $main-color;
     }
+
+    &:hover {
+      background-color: $main-color;
+      box-shadow: 3px 3px 19px rgba(2, 120, 120, 0.11);
+      transition: 500ms;
+
+      h4,
+      .icon {
+        color: #f9b52c !important;
+      }
+    }
   }
 }

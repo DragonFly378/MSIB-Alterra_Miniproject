@@ -33,6 +33,7 @@ export const GET_USER_BY_ID = gql`
         id
         ayat
         nama_surat
+        nomor_surat
       }
     }
   }
@@ -52,6 +53,7 @@ export const INSERT_FAVORITE = gql`
       id
       nama_surat
       ayat
+      nomor_surat
     }
   }
 `;
